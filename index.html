@@ -1,0 +1,813 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aplicación del Submódulo de BD simples y avanzadas</title>
+
+<link rel="icon" href="res/android/ico.ico">
+<!--gripo CSS-->
+<link rel="stylesheet" href="css/tema10.css"/>
+<link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css"/>
+<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css"/>
+
+
+<!--grupo JavaScript-->
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<!--   <script src="js/acciones.js"></script> -->
+<script src="phonegap.js"></script>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+
+<!-- Start WOWSlider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+<script type="text/javascript" src="engine1/jquery.js"></script>
+<!-- End WOWSlider.com HEAD section -->
+
+
+</head><body onLoad="MM_preloadImages('imagenes/database.png','imagenes/desarrollador2.jpg','imagenes/basededatos2.jpg','imagenes/curso2.jpg','imagenes/integridad.png','imagenes/historia2.png','imagenes/Desarrollador3.jpg')">
+
+
+
+
+<div data-role="page" id="Principal" data-theme="b">
+
+<div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="b">
+  <h1>Aplicación del Submódulo </h1><h1> BD simples y avanzadas</h1>
+</div>
+<div data-role="main" class="ui-content">
+<div>
+<!-- Start WOWSlider.com BODY section -->
+<div id="wowslider-container1">
+<div class="ws_images"><ul>
+		<li><img src="data1/images/database2.jpg" alt="database2" title="database2" id="wows1_0"/></li>
+		<li><img src="data1/images/respaldo2.jpg" alt="Respaldo2" title="Respaldo2" id="wows1_1"/></li>
+		<li><img src="data1/images/desarrollador.jpg" alt="desarrollador" title="desarrollador" id="wows1_2"/></li>
+		<li><img src="data1/images/desarrollador2.jpg" alt="desarrollador2" title="desarrollador2" id="wows1_3"/></li>
+		<li><img src="data1/images/basededatos.jpg" alt="basededatos" title="basededatos" id="wows1_4"/></li>
+		<li><img src="data1/images/access.png" alt="access" title="access" id="wows1_5"/></li>
+		<li><a href="http://wowslider.com"><img src="data1/images/database4.jpg" alt="http://wowslider.com/" title="database4" id="wows1_6"/></a></li>
+		<li><img src="data1/images/database5.jpg" alt="database5" title="database5" id="wows1_7"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="database2"><span><img src="data1/tooltips/database2.jpg" alt="database2"/>1</span></a>
+		<a href="#" title="Respaldo2"><span><img src="data1/tooltips/respaldo2.jpg" alt="Respaldo2"/>2</span></a>
+		<a href="#" title="desarrollador"><span><img src="data1/tooltips/desarrollador.jpg" alt="desarrollador"/>3</span></a>
+		<a href="#" title="desarrollador2"><span><img src="data1/tooltips/desarrollador2.jpg" alt="desarrollador2"/>4</span></a>
+		<a href="#" title="basededatos"><span><img src="data1/tooltips/basededatos.jpg" alt="basededatos"/>5</span></a>
+		<a href="#" title="access"><span><img src="data1/tooltips/access.png" alt="access"/>6</span></a>
+		<a href="#" title="database4"><span><img src="data1/tooltips/database4.jpg" alt="database4"/>7</span></a>
+		<a href="#" title="database5"><span><img src="data1/tooltips/database5.jpg" alt="database5"/>8</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com">wowslider</a> by WOWSlider.com v8.7</div>
+<div class="ws_shadow"></div>
+</div>	
+<script type="text/javascript" src="engine1/wowslider.js"></script>
+<script type="text/javascript" src="engine1/script.js"></script>
+<!-- End WOWSlider.com BODY section --></div>
+
+<div data-role="collapsible" data-content-theme="false">
+  <h1>¿Que es una Base de datos?</h1>
+    <div>
+      <p>Es un sistema que almacena datos que están relacionados.      </p>
+      <p><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('1image','','imagenes/database.png',1)"><img src="imagenes/basededatos.jpg" width="50%" height="50%" id="1image"></a></p>
+      <p><br>
+    </p>
+    </div>
+    <div></div>
+</div>
+</div>
+
+
+
+
+
+<div>
+<ul data-role="listview" data-theme="a" class="ui-listview ui-group-theme-a">
+<li class="ui-first-child ui-last-child">
+<a href="#BDS" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Base de Datos Simples</h2>
+
+</a>
+</li>
+<li class="ui-first-child ui-last-child">
+<a href="#BDA" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Base de Datos Avanzadas</h2>
+</a>
+</li>
+
+
+
+
+
+</ul>
+</div>
+
+
+
+<div data-role="collapsible" data-content-theme="false">
+  <h1>Datos del desarrollador</h1>
+  <div>
+    <p>&nbsp;</p>
+    <p>Nombre del alumno : Gustavo Jesús Calderón Ximil</p>
+    <p>Grupo:  &quot;G   </p><p>Semestre:  4°</p>
+    <p>Submódulo: Desarrolla Aplicaciones móviles</p>
+    <p>Nombre del docente: Jose Antonio Gomez Hernandez</p>
+    <p><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('desarrolladores','','imagenes/desarrollador2.jpg',1)"><img src="imagenes/desarrollador.jpg" width="40%" height="80%" id="desarrolladores"></a></p>
+    <p><br>
+  </p>
+  </div>
+  <div></div>
+</div>
+<div data-role="collapsible" data-content-theme="false">
+  <div data-role="content" align="center">
+    <div>
+      <h1>&nbsp;</h1>
+    </div>
+  </div>
+  <h1>Base de Datos</h1>
+  <div>
+    <p>&nbsp;</p>
+    <p><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('DB56','','imagenes/Desarrollador3.jpg',1)"><img src="imagenes/database4.jpg" width="50%" height="40%" id="DB56"></a><br>
+    </p>
+  </div>
+  <div></div>
+</div>
+<p>&nbsp;</p>
+
+
+
+<div data-role="footer" align="center" data-position="fixed">
+<div>
+<img src="res/android/mdpi.png" width="46" height="46">
+</div>
+<div>
+<h4>Aplicación Diez, GJCX</h4>
+<h4>Gustavo Jesús Calderón Ximil</h4>
+</div>
+</div>
+</div>
+
+
+<div data-role="page" id="BDS" data-add-back-btn="true" data-theme="a">
+<div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+<h1>Base de Datos Simples</h1>
+</div>
+<div data-role="content" align="center">
+<div>
+  
+  <div>
+<ul data-role="listview" data-theme="a" class="ui-listview ui-group-theme-a">
+<li class="ui-first-child ui-last-child">
+<a href="#Page1" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Fundamentos de las Base de Datos</h2>
+</a>
+</li>
+
+
+<li class="ui-first-child ui-last-child">
+<a href="#Page2" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Historia de las Base de Datos</h2>
+</a>
+</li>
+
+<li class="ui-first-child ui-last-child">
+<a href="#Page3" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Modelo de Base de Datos</h2>
+</a>
+</li>
+
+<li class="ui-first-child ui-last-child">
+<a href="#Page4" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Modelo Entidad - Relación</h2>
+</a>
+</li>
+
+<li class="ui-first-child ui-last-child">
+<a href="#Page5" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Tipos de relaciones</h2>
+</a>
+</li>
+
+</ul>
+</div>
+<p>&nbsp;</p>
+<!-- Start WOWSlider.com BODY section -->
+<div id="wowslider-container1">
+<div class="ws_images"><ul>
+		<li><img src="data1/images/atributos.png" alt="atributos" title="atributos" id="wows1_0"/></li>
+		<li><img src="data1/images/basededatos.jpg" alt="basededatos" title="basededatos" id="wows1_1"/></li>
+		<li><img src="data1/images/database.png" alt="database" title="database" id="wows1_2"/></li>
+		<li><img src="data1/images/entidad.png" alt="entidad" title="entidad" id="wows1_3"/></li>
+		<li><img src="data1/images/historia.jpg" alt="historia" title="historia" id="wows1_4"/></li>
+		<li><img src="data1/images/maxresdefault.jpg" alt="maxresdefault" title="maxresdefault" id="wows1_5"/></li>
+		<li><img src="data1/images/modelo.png" alt="modelo" title="modelo" id="wows1_6"/></li>
+		<li><img src="data1/images/modelo_entidad_relacion.jpg" alt="modelo_entidad_relacion" title="modelo_entidad_relacion" id="wows1_7"/></li>
+		<li><img src="data1/images/relacion.png" alt="relacion" title="relacion" id="wows1_8"/></li>
+		<li><img src="data1/images/tabla.jpg" alt="tabla" title="tabla" id="wows1_9"/></li>
+		<li><img src="data1/images/unoamuchos_y_muchosauno.png" alt="unoamuchos_y_muchosauno" title="unoamuchos_y_muchosauno" id="wows1_10"/></li>
+		<li><a href="http://wowslider.net"><img src="data1/images/unoauno.png" alt="html slider" title="unoauno" id="wows1_11"/></a></li>
+		<li><img src="data1/images/variosavarios.png" alt="variosavarios" title="variosavarios" id="wows1_12"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="atributos"><span><img src="data1/tooltips/atributos.png" alt="atributos"/>1</span></a>
+		<a href="#" title="basededatos"><span><img src="data1/tooltips/basededatos.jpg" alt="basededatos"/>2</span></a>
+		<a href="#" title="database"><span><img src="data1/tooltips/database.png" alt="database"/>3</span></a>
+		<a href="#" title="entidad"><span><img src="data1/tooltips/entidad.png" alt="entidad"/>4</span></a>
+		<a href="#" title="historia"><span><img src="data1/tooltips/historia.jpg" alt="historia"/>5</span></a>
+		<a href="#" title="maxresdefault"><span><img src="data1/tooltips/maxresdefault.jpg" alt="maxresdefault"/>6</span></a>
+		<a href="#" title="modelo"><span><img src="data1/tooltips/modelo.png" alt="modelo"/>7</span></a>
+		<a href="#" title="modelo_entidad_relacion"><span><img src="data1/tooltips/modelo_entidad_relacion.jpg" alt="modelo_entidad_relacion"/>8</span></a>
+		<a href="#" title="relacion"><span><img src="data1/tooltips/relacion.png" alt="relacion"/>9</span></a>
+		<a href="#" title="tabla"><span><img src="data1/tooltips/tabla.jpg" alt="tabla"/>10</span></a>
+		<a href="#" title="unoamuchos_y_muchosauno"><span><img src="data1/tooltips/unoamuchos_y_muchosauno.png" alt="unoamuchos_y_muchosauno"/>11</span></a>
+		<a href="#" title="unoauno"><span><img src="data1/tooltips/unoauno.png" alt="unoauno"/>12</span></a>
+		<a href="#" title="variosavarios"><span><img src="data1/tooltips/variosavarios.png" alt="variosavarios"/>13</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">javascript photo gallery</a> by WOWSlider.com v8.8</div>
+<div class="ws_shadow"></div>
+</div>	
+<script type="text/javascript" src="engine1/wowslider.js"></script>
+<script type="text/javascript" src="engine1/script.js"></script>
+<!-- End WOWSlider.com BODY section -->
+<p>&nbsp;</p>
+<p>Otras fuentes de información dando click en el siguiente botón.</p>
+<p>&nbsp;</p>
+ <center><div style="width:40%;">
+<ul data-role="controlgroup" data-type="vertical" data-theme="b">
+
+<li class="ui-first-child ui-last-child">
+<a href="http://www.monografias.com/trabajos34/base-de-datos/base-de-datos.shtml" data-role="button" target="_self">
+<h2>Aquí.</h2>
+</a>
+</li>
+
+</ul>
+</div></center>
+
+  
+</div>
+</div>
+<div data-role="footer" align="center" data-theme="a" data-position="fixed">
+<div>
+<img src="res/android/mdpi.png" width="46" height="46">
+</div>
+<h4>Aplicación Diez, GJCX</h4>
+</div>
+</div>
+
+
+
+<div data-role="page" id="BDA" data-add-back-btn="true" data-theme="a">
+<div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+<h1>Base de Datos Avanzadas</h1>
+</div>
+<div data-role="content" align="center">
+<div>
+ 
+   <div>
+<ul data-role="listview" data-theme="a" class="ui-listview ui-group-theme-a">
+<li class="ui-first-child ui-last-child">
+<a href="#Pagina1" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Conceptos básicos de Access</h2>
+
+</a>
+</li>
+<li class="ui-first-child ui-last-child">
+<a href="#Pagina2" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Archivos de las BD </h2>
+</a>
+</li>
+
+<li class="ui-first-child ui-last-child">
+<a href="#Pagina3" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Integridad de las BD </h2>
+</a>
+</li>
+
+<li class="ui-first-child ui-last-child">
+<a href="#Pagina4" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Reglas de normalización de las BD </h2>
+</a>
+</li>
+
+<li class="ui-first-child ui-last-child">
+<a href="#Pagina5" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+<h2>Curso de Access </h2>
+</a>
+</li>
+
+
+</ul>
+</div>
+  
+ 
+</div>
+</div>
+<div data-role="footer" align="center" data-theme="a" data-position="fixed">
+<div>
+<img src="res/android/mdpi.png" width="46" height="46"></div>
+<h4>Aplicación Diez, GJCX</h4>
+</div>
+</div>
+
+
+<div data-role="page" id="Page1" data-add-back-btn="true" data-theme="a">
+<div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+<h1>Fundamentos de las Bases de datos</h1>
+</div>
+<div data-role="content" align="center">
+<div>
+  <p><strong>Bases de datos BD</strong><br>
+  </p>
+  <div>
+    <p align="left">Los sistemas de información en empresas, bibliotecas, centros de documentación, archivos y demás unidades de información, requieren en todo caso de la asistencia y soporte de sistemas de gestión de bases de datos y las bases de datos propiamente dichas. Una <em>base de datos es una colección de contenidos textuales, alfanuméricos o numéricos altamente estructurados y organizados para su almacenamiento</em>. Las bases de datos ofrecen la posibilidad de inferir en la edición, inserción, eliminación, actualización y creación de tablas, campos, registros y datos mediante un lenguaje de programación, consulta o recuperación. El lenguaje de inferencia en base de datos tiene como finalidad declarar el objetivo declarar la operación que se pretender realizar, qué información se debe seleccionar y con qué especificaciones. Por otra parte permiten la concurrencia de múltiples usuarios en la manipulación y edición de los contenidos. Ello significa que están diseñadas para ordenar las peticiones y operaciones de los mismos, estableciendo una prioridad en su resolución. Las bases de datos se caracterizan por la independencia de los datos que en principio permite la interoperabilidad de la información entre diversos sistemas de BD, denominándose a esta propiedad, la capacidad de migración de datos. Una base de datos reduce la posibilidad de redundancia o duplicación de los datos, mejorando el aprovechamiento del espacio y la inconsistencia de la información almacenada, ayudando a facilitar su normalización y sistematización.</p>
+    <p><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('basededatos56','','imagenes/basededatos2.jpg',1)"><img src="imagenes/basededatos.jpg" width="50%" height="40%" id="basededatos56"></a></p>
+    <p><strong>Sistema de gestión de bases de datos SGBD</strong><br>
+    </p>
+    <p align="left">Se denomina SGBD al sistema que permite la manipulación de las bases de datos mediante un interfaz que compone las sentencias de consultas y edición de dicha base de datos. Este sistema evita gestionar los componentes de la base de datos, facilitando su diseño, construcción de las tablas, campos y características. </p>
+    <p align="center"><img src="imagenes/maxresdefault.jpg" width="50%" height="50%"><br>
+      <strong>Tabla, campo y registro de la base de datos</strong>
+    </p>
+    <p align="left">Las bases de datos se componen a partir de tablas que son estructuras compuestas por filas y columnas. Las columnas representan los campos de la descripción de un registro. El registro de la tabla queda localizado en las filas de la tabla. De esta forma la tabla contiene todos los aspectos de la descripción de un ítem u objeto de descripción mediante la definición de los campos o metadatos especializados. Por ejemplo un libro puede ser descrito a partir de una serie de elementos denotativos y connotativos que se denominan áreas de descripción y asientos bibliográficos. Entre ellos se encuentran los campos de título, subtítulo, título paralelo, otras formas del título, autoridades personales, autoridades corporativas, autoridades familiares, autoridades geográficas, autoridades editoriales, edición, mención de edición, serie, número de serie, fecha de publicación, número de páginas, dimensiones del documento, signatura topográfica, clasificación decimal, clasificación por tesauro, etiquetas, puntos de acceso, palabras clave, resumen, sumario, índice, texto completo, dirección URL del documento original, etc. Todos los aspectos señalados permiten la descripción del documento a partir de ciertos datos identificables en el documento, que lo convierten en un ejemplar único en la tabla y en la base de datos. Los datos del objeto de descripción, en este caso del libro, constituyen una fila o registro que es unívoco e independiente del resto. Ello se consigue gracias a la introducción de un valor denominado identificador de número correlativo, código de control interno o mediante el más conocido campo autonumérico. Consiste en otorgar a cada registro o fila de la tabla un número de identificación ascendente, que diferencie cada uno de los ítem u objetos descritos en el sistema. Ello permite referir la selección de los contenidos en una consulta dada.</p>
+    <p><img src="imagenes/tabla.gif" width="70%" height="40%"><br>
+  </p>
+  </div>
+
+
+</div>
+</div>
+<div data-role="footer" align="center" data-theme="a" data-position="fixed">
+<div>
+<img src="res/android/mdpi.png" width="46" height="46">
+</div>
+<h4>Aplicación Diez, GJCX</h4>
+</div>
+</div>
+
+
+
+<div data-role="page" id="Page2" data-add-back-btn="true" data-theme="a">
+<div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+<h1>Historia de las Bases de Datos</h1>
+</div>
+<div data-role="content" align="center">
+<div>
+  <p>Para acceder a la página de la historia de las BD de click sobre el siguiente botón.</p>
+  
+  <center><div style="width:40%;">
+<ul data-role="controlgroup" data-type="vertical" data-theme="b">
+
+<li class="ui-first-child ui-last-child">
+<a href="http://histinf.blogs.upv.es/2011/01/04/historia-de-las-bases-de-datos/" data-role="button" target="_self">
+<h2>Aquí.</h2>
+</a>
+</li>
+
+</ul>
+</div></center>
+  
+  <div data-role="collapsible" data-content-theme="false">
+    <div data-role="content" align="center">
+      <div>
+        <h1>Herman Hollerith</h1>
+      </div>
+    </div>
+    <h1>Herman Hollerith</h1>
+    <div>
+      <p>&nbsp;</p>
+      <p><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('historia3','','imagenes/historia2.png',1)"><img src="imagenes/historia.jpg" width="50%" height="50%" id="historia3"></a><br>
+      </p>
+    </div>
+    <div></div>
+  </div>
+</div>
+</div>
+<div data-role="footer" align="center" data-theme="a" data-position="fixed">
+<div>
+<img src="res/android/mdpi.png" width="46" height="46">
+</div>
+<h4>Aplicación Diez, GJCX</h4>
+</div>
+</div>
+
+
+
+<div data-role="page" id="Page3" data-add-back-btn="true" data-theme="a">
+<div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+<h1>Modelo de Base Datos</h1>
+</div>
+<div data-role="content" align="center">
+<div>
+  
+  
+  <div data-role="main" class="ui-content" align="center">
+    <h2>Tipos de modelos de bases de datos</h2>
+    <p align="left">Hay muchos tipos de modelos de bases de datos. Algunos de los más comunes incluyen:</p>
+    <div align="left">
+      <ul>
+        <li>Modelo de base de datos jerárquico</li>
+        <li>Modelo relacional</li>
+        <li>Modelo de red</li>
+        <li>Modelo de base de datos orientado a objetos</li>
+        <li>Modelo entidad-relación</li>
+        <li>Modelo de documentos</li>
+        <li>Modelo entidad-atributo-valor</li>
+        <li>Esquema de estrella</li>
+        <li>Modelo relacional de objetos, que combina los dos que forman su nombre</li>
+      </ul>
+    </div>
+    <p align="left">Puedes elegir describir una base de datos con cualquiera de ellos dependiendo de varios factores. El mayor factor es si el sistema de gestión de bases de datos que estás usando es compatible con un modelo en particular. La mayoría de los sistemas de gestión de bases de datos están desarrollados con un modelo de datos particular en mente y requieren que los usuarios adopten ese modelo, aunque algunos son compatibles con múltiples modelos.</p>
+    <p align="left">Además, diferentes modelos aplican a diferentes etapas del proceso de diseño de bases de datos. Los modelos de datos conceptuales de alto nivel son mejores para crear mapas de relaciones entre datos en las formas en que la gente percibe esos datos. Por otro lado, los modelos lógicos basados en registros reflejan más estrechamente las formas en que los datos se almacenan en el servidor.</p>
+    <p align="left">La elección de un modelo de datos también depende de que alinees tus prioridades con las fortalezas de la base de datos de un modelo en particular, ya sea que esas prioridades incluyan velocidad, reducción de costos, usabilidad o algo más.  </p>
+    <p align="center"><img src="imagenes/modelo.png" width="250" height="201"></p>
+    <p align="center">Para mas información de click en el siguiente botón. 
+    
+     <center><div style="width:40%;">
+<ul data-role="controlgroup" data-type="vertical" data-theme="b">
+
+<li class="ui-first-child ui-last-child">
+<a href="https://www.lucidchart.com/pages/es/qué-es-un-modelo-de-base-de-datos" data-role="button" target="_self">
+<h2>Aquí.</h2>
+</a>
+</li>
+</ul>
+</div></center>
+
+  </div>
+  
+
+</div>
+</div>
+<div data-role="footer" align="center" data-theme="a" data-position="fixed">
+<div>
+<img src="res/android/mdpi.png" width="46" height="46">
+</div>
+<h4>Aplicación Diez, GJCX</h4>
+</div>
+</div></div>
+
+
+<div data-role="page" id="Page4" data-add-back-btn="true" data-theme="a">
+<div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+<h1>Modelo Entidad - Relación</h1>
+</div>
+<div data-role="content" align="center">
+<div>
+ <center>
+   <p align="left">Este modelo capta las relaciones entre entidades del mundo real de forma muy similar al modelo de red, pero no está directamente ligado a una estructura física de la base de datos. En cambio, con frecuencia se lo usa para diseñar una base de datos conceptualmente.   </p>
+   <h2>Elementos del modelo entidad-relación</h2>
+   <h3 align="left">Entidad</h3>
+   <p align="left">Las entidades representan <em>cosas</em> u <em>objetos</em> (ya sean reales o abstractos), que se diferencian claramente entre sí.</p>
+   <p align="left">Para poder seguir un ejemplo durante el artículo añadiré ejemplos sobre un taller mecánico, donde se podría crear las siguientes entidades:</p>
+   <div align="left">
+     <ul>
+       <li><strong>Coches</strong> (objeto físico): contiene la información de cada taller.</li>
+       <li><strong>Empleado</strong> (<em>objeto</em> físico): información de los trabajadores.</li>
+       <li><strong>Cargo del empleado</strong> (<em>cosa</em> abstracta): información de la función del empleado.</li>
+     </ul>
+   </div>
+   <p align="left">Estas entidades se representan en un diagrama con un rectángulos, como los siguientes.</p>
+   <p align="center"><img src="imagenes/entidad.png" width="49%" height="98%"></p>
+   <h3 align="left">Atributos</h3>
+   <p align="left">Los atributos definen o identifican las características de entidad (<strong>es el contenido de esta entidad</strong>). Cada entidad contiene distintos atributos, que dan información sobre esta entidad. Estos atributos pueden ser de distintos tipos (numéricos, texto, fecha...).</p>
+   <p align="left">Siguiendo el ejemplo de antes podemos analizar los atributos de nuestra entidad "<strong>Coches</strong>", que nos darán información sobre los coches de nuestro supuesto taller.</p>
+   <p align="left">Unos posibles atributos serían los siguientes: <em>número de chasis</em>, <em>matrícula</em>, <em>DNI del propietario</em>, <em>marca</em>, <em>modelo</em> y muchos otros que complementen la información de cada coche.</p>
+   <p align="left">Los atributos se representan como círculos que descienden de una entidad, y no es necesario representarlos todos, sino los más significativos, como a continuación.</p>
+   <div>
+     <div></div>
+   </div>
+   <br>
+   <p align="center"><img src="imagenes/atributos.png" width="50%" height="50%"></p>
+   <h3>Relación</h3>
+   <p align="left">Es un vínculo que nos permite definir una dependencia entre varias entidades, es decir, nos permite exigir que varias entidades compartan ciertos atributos de forma indispensable.</p>
+   <p align="left">Por ejemplo, los empleados del taller (de la entidad "<strong>Empleados</strong>") tienen un cargo (según la entidad "<strong>Cargo del empleado</strong>"). Es decir, un atributo de la entidad "<em>Empleados</em>" especificará que cargo tiene en el taller, y tiene que ser idéntico al que ya existe en la entidad "<em>Cargo del empleado</em>".</p>
+   <p align="left">Las relaciones se muestran en los diagramas como rombos, que se unen a las entidades mediante líneas.</p>
+   <p><img src="imagenes/relacion.png" width="49%" height="98%"></p>
+ </center>
+</div>
+</div>
+<div data-role="footer" align="center" data-theme="a" data-position="fixed">
+<div>
+<img src="res/android/mdpi.png" width="46" height="46">
+</div>
+<h4>Aplicación Diez, GJCX</h4>
+</div>
+</div></div>
+
+<div data-role="page" id="Page5" data-add-back-btn="true" data-theme="a">
+<div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+<h1>Tipos de relaciones</h1>
+</div>
+<div data-role="content" align="center">
+<div>
+ <center>
+   <p align="left">Podemos encontrar distintos tipos de relaciones según como participen en ellas las entidades. Es decir, en el caso anterior cada empleado puede tener un cargo, pero un mismo cargo lo pueden compartir varios empleados.</p>
+   <p align="left">Esto complementa a las representaciones de las relaciones, mediante un intervalo en cada extremo de la relación que especifica cuantos <em>objetos</em> o <em>cosas</em> (de cada entidad) pueden intervenir en esa relación.</p>
+   <p align="left"><strong>Uno a uno</strong>: Una entidad se relaciona únicamente con otra y viceversa. Por ejemplo, si tuviésemos una entidad con distintos chasis y otra con matrículas deberíamos de determinar que cada chasis solo puede tener una matrícula (y cada matrícula un chasis, ni más en ningún caso).</p>
+   <div>
+     <div></div>
+   </div>
+   <img src="imagenes/unoauno.png" width="49%" height="98%"><br>
+   <p align="left"><strong>Uno a varios</strong> o <strong>varios a uno</strong>: determina que un registro de una entidad puede estar relacionado con varios de otra entidad, pero en esta entidad existir solo una vez. Como ha sido en el caso anterior del trabajador del taller.</p>
+   <div>
+     <div></div>
+   </div>
+   <img src="imagenes/unoamuchos_y_muchosauno.png" width="49%" height="98%"><br>
+   <p align="left"><strong>Varios a varios</strong>: determina que una entidad puede relacionarse con otra con ninguno o varios registros y viceversa. Por ejemplo, en el taller un coche puede ser reparado por varios mecánicos distintos y esos mecánicos pueden reparar varios coches distintos.<br>
+   </p>
+   <p><img src="imagenes/variosavarios.png" width="49%" height="98%"></p>
+   <p align="left">Los indicadores numéricos indican el primero el número mínimo de registros en una relación y posteriormente el máximo (si no hay límite se representa con una "<em>n</em>").   </p>
+   <h3 align="left">Claves</h3>
+   <p align="left">Es el atributo de una entidad, al que le aplicamos una restricción que lo distingue de los demás registros (no permitiendo que el atributo específico se repita en la entidad) o le aplica un vínculo (exactamente como comentábamos en las relaciones). Estos son los distintos tipos:</p>
+   <p align="left"><strong>Superclave</strong>: aplica una clave o restricción a varios atributos de la entidad, para así asegurarse que en su conjunto no se repitan varias veces y así no poder entrar en dudas al querer identificar un registro.</p>
+   <p align="left"><strong>Clave primaria</strong>: identifica inequívocamente un solo atributo no permitiendo que se repita en la misma entidad. Como sería la matrícula o el número de chasis de un coche (no puede existir dos veces el mismo).</p>
+   <p align="left"><strong>Clave externa</strong> o <strong>clave foránea</strong>: este campo tiene que estar estrictamente relacionado con la clave primaria de otra entidad, para así exigir que exista previamente ese clave. Anteriormente hemos hablado de ello cuando comentábamos que un empleado indispensablemente tiene que tener un cargo (que lo hemos representado numéricamente), por lo cual si intentásemos darle un cargo inexistente el gestor de bases de datos nos devolvería un error. </p>
+ </center>
+<p></p>
+</div>
+</div>
+<div data-role="footer" align="center" data-theme="a" data-position="fixed">
+<div>
+<img src="res/android/mdpi.png" width="46" height="46">
+</div>
+<h4>Aplicación Diez, GJCX</h4>
+</div>
+</div></div>
+
+<div data-role="page" id="Pagina1" data-add-back-btn="true" data-theme="a">
+<div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+<h1>Conceptos básicos de Access</h1>
+</div>
+<div data-role="content" align="center">
+<div>
+ <center>
+   <h2>Tablas</h2>
+   <p align="left" > Una tabla de base de datos es similar en apariencia a una hoja de cálculo en cuanto a que los datos se almacenan en filas y columnas. Por ende, es bastante fácil importar una hoja de cálculo en una tabla de base de datos. La principal diferencia entre almacenar los datos en una hoja de cálculo y almacenarlos en una base de datos es la forma en la que están organizados los datos.</p>
+   <p align="left" >Para aprovechar al máximo la flexibilidad de una base de datos, los datos deben organizarse en tablas para que no se produzcan redundancias. Por ejemplo, si quiere almacenar información sobre los empleados, cada empleado debe especificarse solo una vez en la tabla que está configurada para los datos de los empleados. Los datos sobre los productos se almacenarán en su propia tabla y los datos sobre las sucursales se almacenarán en otra tabla. Este proceso se denomina <em>normalización</em>.</p>
+   <p align="left" >Cada fila de una tabla se denomina registro. En los registros se almacena información. Cada registro está formado por uno o varios campos. Los campos equivalen a las columnas de la tabla. Por ejemplo, puede tener una tabla llamada "Empleados" donde cada registro (fila) contiene información sobre un empleado distinto y cada campo (columna) contiene otro tipo de información como nombre, apellido, dirección, etc. Los campos deben designarse como un determinado tipo de datos, ya sea texto, fecha u hora, número o algún otro tipo.</p>
+   <p align="left">Otra forma de describir los registros y los campos es imaginar un catálogo de tarjetas antiguo de una biblioteca. Cada tarjeta del archivador corresponde a un <em>registro</em> de la base de datos. Cada dato de una tarjeta individual (autor, título, etc.) equivale a un <em>campo</em> de la base de datos.   </p>
+   <p align="center"><img src="imagenes/tablas_access.png" width="90%" height="45%"></p>
+   <h2>Formularios</h2>
+   <p align="left" > Los formularios permiten crear una interfaz de usuario en la que puede escribir y modificar datos. Los formularios a menudo contienen botones de comandos y otros controles que realizan distintas tareas. Puede crear una base de datos sin usar formularios con tan solo modificar los datos en las hojas de datos de la tabla. Sin embargo, la mayoría de los usuarios de bases de datos prefieren usar formularios para ver, escribir y modificar datos en las tablas.</p>
+   <p align="left" >Puede programar botones de comandos para determinar qué datos aparecen en el formulario, abrir otros formularios o informes, o ejecutar otras tareas. Por ejemplo, puede tener un formulario llamado "Formulario de cliente" en el que trabaja con los datos de los clientes. El formulario de cliente puede tener un botón que abra un formulario de pedido en el que puede especificar un pedido nuevo para el cliente.</p>
+   <p align="left" >Los formularios también le permiten controlar de qué manera otros usuarios interactúan con los datos de la base de datos. Por ejemplo, puede crear un formulario que muestre solo determinados campos y permita que se realicen únicamente ciertas operaciones. Esto ayuda a proteger los datos y a asegurarse de que los datos se especifican correctamente.   </p>
+   <p align="center"><img src="imagenes/formulario_access.jpg" width="90%" height="45%"></p>
+   <h2>Informes</h2>
+   <p align="left" > Los informes se usan para dar formato a los datos, resumirlos y presentarlos. Por lo general, un informe responde a una pregunta específica como: "¿Cuánto dinero recibimos de cada cliente este año?" o "¿En qué ciudades residen nuestros clientes?". A cada informe se le puede dar formato para presentar la información de la manera más legible posible.</p>
+   <p align="left" >Se puede ejecutar un informe por vez y siempre se reflejan los datos actuales de la base de datos. Generalmente, se les da formato a los informes para imprimirlos, pero también pueden verse en pantalla, exportarse a otro programa o enviarse como datos adjuntos en un correo electrónico.</p>
+    <p align="center"><img src="imagenes/informes_access.jpg" width="90%" height="45%"></p>
+   <h2>Consultas</h2>
+   <p align="left" > Las consultas pueden realizar diversas funciones en una base de datos. La función más común es recuperar datos específicos de las tablas. Los datos que quiere ver generalmente están distribuidos en varias tablas y las consultas le permiten verlos en una única hoja de datos. Además, debido a que muchas veces no quiere ver todos los registros a la vez, las consultas le permiten agregar criterios para "filtrar" los datos y obtener solo los registros que quiere.</p>
+   <p align="left" xmlns:antixss="urn:AntiXSSExtensions">Ciertas consultas son "actualizables", es decir, puede modificar los datos de las tablas subyacentes mediante la hoja de datos de la consulta. Si está trabajando en una consulta actualizable, recuerde que los cambios se realizan en realidad en las tablas, no solo en la hoja de datos de la consulta.</p>
+   <p align="left" xmlns:antixss="urn:AntiXSSExtensions">Hay dos variedades básicas de consultas: consultas de selección y consultas de acciones. Una consulta de selección simplemente recupera los datos y los pone a disposición para su uso. Puede ver los resultados de la consulta en la pantalla, imprimirlos o copiarlos al portapapeles. O bien, puede usar el resultado de la consulta como un origen de registro para un formulario o un informe.</p>
+   <p align="left" xmlns:antixss="urn:AntiXSSExtensions">Una consulta de acción, tal como el nombre lo indica, realiza una tarea con los datos. Las consultas de acción se pueden usar para crear tablas nuevas, agregar datos a las tablas existentes, o actualizar o eliminar datos.   </p>
+   <p align="center"><img src="imagenes/consultas_access.png" width="90%" height="45%"></p>
+   <h2>Macros</h2>
+   <p align="left" xmlns:antixss="urn:AntiXSSExtensions"> Las macros en Access pueden considerarse un lenguaje de programación simplificado que puede usar para agregar funciones a la base de datos. Por ejemplo, puede adjuntar una macro a un botón de comando en un formulario para que la macro se ejecute cada vez que se hace clic en ese botón. Las macros contienen acciones que ejecutan tareas, como abrir un informe, ejecutar una consulta o cerrar la base de datos. La mayoría de las operaciones de la base de datos que realiza manualmente se pueden automatizar mediante el uso de macros, por lo que se convierten en dispositivos que permiten ahorrar mucho tiempo.   </p>
+   <p align="center"><img src="imagenes/macros_access.JPG" width="90%" height="45%"></p>
+   <h2>Módulos</h2>
+   <P align="left"> Los módulos, como las macros, son objetos que puede usar para agregar funciones a la base de datos. Mientras que las macros se crean en Access mediante la elección de una lista de acciones de macro, los módulos se escriben en el lenguaje de programación Visual Basic para Aplicaciones (VBA). Un módulo es una colección de declaraciones, instrucciones y procedimientos que se almacenan juntos como una unidad. Un módulo puede ser un módulo de clase o un módulo estándar. Los módulos de clase se adjuntan a formularios o informes y, por lo general, contienen procedimientos que son específicos para el formulario o el informe al que están adjuntos. Los módulos estándar contienen procedimientos generales que no están asociados a ningún otro objeto. Los módulos estándar aparecen en <strong>Módulos</strong> en el panel de navegación mientras que los módulos de clase no. </p>
+ </center>
+ <p align="center"><img src="imagenes/modulos_access.jpg" width="90%" height="45%"></p>
+<p></p>
+</div>
+</div>
+<div data-role="footer" align="center" data-theme="a" data-position="fixed">
+<div>
+<img src="res/android/mdpi.png" width="46" height="46">
+</div>
+<h4>Aplicación Diez, GJCX</h4>
+</div>
+</div></div>
+
+<div data-role="page" id="Pagina2" data-add-back-btn="true" data-theme="a">
+<div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+<h1>Archivos de la base de datos</h1>
+</div>
+<div data-role="content" align="center">
+<div>
+ <center>
+   <h2 id="database-files"><span data-ttu-id="d6d27-107" translation="Database Files">Archivos de la base de datos</span></h2>
+   <p><span data-ttu-id="48579-101" translation="SQL Server">SQL Server</span><span data-ttu-id="d6d27-108" translation=" databases have three types of files, as shown in the following table."> tienen tres tipos de archivos, tal como se muestra en la tabla siguiente.</span></p>
+   <div>
+     <table border="2" bgcolor="#FF9966" >
+       <thead>
+         <tr>
+           <th><span data-ttu-id="d6d27-109" translation="File">Archivo</span></th>
+           <th><span data-ttu-id="d6d27-110" translation="Description">Description</span></th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>Principal</td>
+           <td>El archivo de datos principal incluye la información de inicio de la base de datos y apunta a los demás archivos de la misma.Los datos y objetos del usuario se pueden almacenar en este archivo o en archivos de datos secundarios.Cada base de datos tiene un archivo de datos principal.La extensión recomendada para los nombres de archivos de datos principales es .mdf.</td>
+         </tr>
+         <tr>
+           <td>Secundario</td>
+           <td>Los archivos de datos secundarios son opcionales, están definidos por el usuario y almacenan los datos del usuario.Se pueden utilizar para distribuir datos en varios discos colocando cada archivo en una unidad de disco distinta.Además, si una base de datos supera el tamaño máximo establecido para un archivo de Windows, puede utilizar los archivos de datos secundarios para permitir el crecimiento de la base de datos.<br>
+             <br>
+             La extensión de nombre de archivo recomendada para los archivos de datos secundarios es .ndf.</td>
+         </tr>
+         <tr>
+           <td>Registro de transacciones</td>
+           <td>Los archivos del registro de transacciones contienen la información de registro que se utiliza para recuperar la base de datos. Cada base de datos debe tener al menos un archivo de registro.La extensión recomendada para los nombres de archivos de registro es .ldf.</td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+   <p>Por ejemplo, puede crearse una base de datos sencilla denominada <strong>Ventas</strong> con un archivo principal que contenga todos los datos y objetos y un archivo de registro con la información del registro de transacciones.Por otra parte, puede crearse una base de datos más compleja, <strong>Pedidos</strong> , compuesta por un archivo principal y cinco archivos secundarios.Los datos y objetos de la base de datos se reparten entre los seis archivos, y cuatro archivos de registro adicionales contienen la información del registro de transacciones.</p>
+   <p>De forma predeterminada, los datos y los registros de transacciones se colocan en la misma unidad y ruta de acceso para administrar los sistemas de un solo disco, pero puede que esto no resulte óptimo para los entornos de producción.Se recomienda colocar los archivos de datos y de registro en distintos discos.</p>
+   <p>&nbsp;</p>
+   <p>Para mas información de clic en el siguiente botón.</p>
+   <div style="width:40%;" align="center">
+     <ul data-role="controlgroup" data-type="vertical" data-theme="b">
+       <li class="ui-first-child ui-last-child"> <a href="https://docs.microsoft.com/es-es/sql/relational-databases/databases/database-files-and-filegroups?view=sql-server-2017" data-role="button" target="_self">
+         <h2>Aquí.</h2>
+         </a> </li>
+     </ul>
+</div>
+   <p>&nbsp;</p>
+ </center>
+<p></p>
+</div>
+</div>
+<div data-role="footer" align="center" data-theme="a" data-position="fixed">
+<div>
+<img src="res/android/mdpi.png" width="46" height="46"/>
+</div>
+<h4>Aplicación Diez, GJCX</h4>
+</div>
+</div>
+<p>&nbsp;</p>
+<div data-role="page" id="Pagina3" data-add-back-btn="true" data-theme="a">
+  <div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+    <h1>Integridad de la base de datos</h1>
+  </div>
+  <div data-role="content" align="center">
+    <div>
+      <div align="left">La integridad en una base de datos es la corrección y exactitud de la información contenida. Además de conservar la seguridad en un sistema de bases de datos que permite el acceso a múltiples usuarios en tiempos paralelos.
+      </div>
+      <div style="width:40%;" align="center">        </div>
+      <h2><span id="Reglas_de_Integridad">Reglas de Integridad</span></h2>
+      <h3><span id="Regla_de_integridad_de_unicidad_de_la_clave_primaria">Regla de integridad de unicidad de la clave primaria</span></h3>
+      <p align="left">La regla de integridad de unicidad está relacionada con la definición de clave primaria que establece que toda clave primaria que se elija para una relación no debe tener valores repetidos por lo que el conjunto de atributos CP es la clave primaria de una relación R, entonces la extensión de R no puede tener en ningún momento dos tuplas con la misma combinación de valores para los atributos de CP.</p>
+      <h3><span id="Regla_de_integridad_de_entidad_de_la_clave_primaria">Regla de integridad de entidad de la clave primaria</span></h3>
+      <p align="left">La regla de integridad de entidad de la clave primaria dispone que los atributos de la clave primaria de una relación no pueden tener valores nulos. Esta regla es necesaria para que los valores de las claves primarias puedan identificar las tuplas individuales de las relaciones. Si las claves primarias tuviesen valores nulos, es posible que algunas tuplas no se pudieran distinguir. Un SGBD relacional tendrá que garantizar el cumplimiento de esta regla de integridad en todas las inserciones y en todas las modificaciones que afecten a atributos que pertenecen a la clave primaria de la relación.</p>
+      <h3><span id="Regla_de_integridad_referencial">Regla de integridad referencial</span></h3>
+      <p align="left">La regla de integridad referencial está relacionada con el concepto de clave foránea, lo que determina que todos los valores que toma una clave foránea deben ser valores nulos o valores que existen en la clave primaria que referencia. La necesidad de esta regla es debido a que las claves foráneas tienen por objetivo establecer una conexión con la clave primaria que referencian. Si un valor de una clave foránea no estuviese presente.</p>
+      <h4><span id="Restricci.C3.B3n">Restricción</span></h4>
+      <p align="left">La restricción en caso de borrado, consiste en no permitir borrar una tupla si tiene una clave primaria referenciada por alguna clave foránea y la restricción en caso de modificación consiste en no permitir modificar ningún atributo de la clave primaria de una tupla si tiene una clave primaria referenciada por alguna clave foránea.</p>
+      <h4><span id="Actualizaci.C3.B3n_en_cascada">Actualización en cascada</span></h4>
+      <p align="left">La actualización en cascada consiste en permitir la operación de actualización de la tupla, y en efectuar operaciones compensatorias que propaguen en cascada la actualización a las tuplas que la referenciaban; se actúa de este modo para mantener la integridad referencial. La actualización en cascada en caso de borrado consiste en permitir el borrado de una tupla t que tiene una clave primaria referenciada, y borrar también todas las tuplas que referencian t y la actualización en cascada en caso de modificación consiste en permitir la modificación de atributos de la clave primaria de una tupla t que tiene una clave primaria referenciada, y modificar del mismo modo todas las tuplas que referencian t.</p>
+      <h4><span id="Anulaci.C3.B3n">Anulación</span></h4>
+      <p align="left">La anulación consiste en permitir la operación de actualización de la tupla y en efectuar operaciones compensatorias que pongan valores nulos a los atributos de la clave foránea de las tuplas que la referencian; esta acción se lleva a cabo para mantener la integridad referencial. Los SGBD relacionales permiten establecer que un determinado atributo de una relación no admite valores nulos, sólo se puede aplicar la política de anulación si los atributos de la clave foránea sí los admiten. Más concretamente, la anulación en caso de borrado consiste en permitir el borrado de una tupla t que tiene una clave referenciada y, además, modificar todas las tuplas que referencian t, de modo que los atributos de la clave foránea correspondiente tomen valores nulos y la anulación en caso de modificación consiste en permitir la modificación de atributos de la clave primaria de una tupla t que tiene una clave referenciada y, además, modificar todas las tuplas que referencian t, de modo que los atributos de la clave foránea correspondiente tomen valores nulos.</p>
+      <h3><span id="Regla_de_integridad_de_dominio">Regla de integridad de dominio</span></h3>
+      <p align="left">La regla de integridad de dominio está relacionada con la noción de dominio. Esta regla establece dos condiciones.</p>
+      <div align="left">
+        <ul>
+          <li>La primera condición consiste en que un valor no nulo de un atributo Ai debe pertenecer al dominio del atributo Ai; es decir, debe pertenecer a dominio(Ai). Esta condición implica que todos los valores no nulos que contiene la base de datos para un determinado atributo deben ser del dominio declarado para dicho atributo.</li>
+          <li>La segunda condición sirve para establecer que los operadores que pueden aplicarse sobre los valores dependen de los dominios de estos valores; es decir, un operador determinado sólo se puede aplicar sobre valores que tengan dominios que le sean adecuados.</li>
+        </ul>
+      </div>
+      <ul>
+      </ul>
+      <div data-role="collapsible" data-content-theme="false">
+        <h1>Integridad</h1>
+        <div>
+          <p>&nbsp;</p>
+          <p><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('integridad','','imagenes/integridad.png',1)"><img src="imagenes/integridad.jpg" width="70%" height="40%" id="integridad"></a></p>
+          <div style="width:40%;" align="center">          </div>
+          <p>&nbsp;</p>
+          <p><br>
+          </p>
+        </div>
+        <div></div>
+        <div>
+          <div style="width:40%;" align="center">
+            <ul data-role="controlgroup" data-type="vertical" data-theme="b">
+              <li class="ui-first-child ui-last-child"> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p>&nbsp;</p>
+    </div>
+</div>
+  <div data-role="footer" align="center" data-theme="a" data-position="fixed">
+    <div> <img src="res/android/mdpi.png" alt="" width="46" height="46"/> </div>
+    <h4>Aplicación Diez, GJCX</h4>
+  </div>
+<div data-role="content" align="center">
+    <div>
+      <center>
+        <div style="width:40%;" align="center"> </div>
+      </center>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="Pagina4" data-add-back-btn="true" data-theme="a">
+  <div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+    <h1>Reglas de normalización</h1>
+  </div>
+  <div data-role="content" align="center">
+    <div>
+      <center>
+        <h2 id="database-files2"><img src="imagenes/normalizacion.png" alt="" width="60%" height="98%"></h2>
+        <p>Para mas información de clic en el siguiente botón.</p>
+        <div style="width:40%;" align="center">
+          <ul data-role="controlgroup" data-type="vertical" data-theme="b">
+            <li class="ui-first-child ui-last-child">
+              <h2><a href="https://ed.team/blog/normalizacion-de-bases-de-datos" data-role="button" target="_self">Aquí.</a></h2>
+            </li>
+          </ul>
+</div>
+        <p>&nbsp;</p>
+      </center>
+      <p></p>
+    </div>
+</div>
+  <div data-role="footer" align="center" data-theme="a" data-position="fixed">
+    <div> <img src="res/android/mdpi.png" alt="" width="46" height="46"/> </div>
+    <h4>Aplicación Diez, GJCX</h4>
+  </div>
+<div data-role="content" align="center">
+    <div>
+      <center>
+        <div style="width:40%;" align="center"> </div>
+      </center>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="Pagina5" data-add-back-btn="true" data-theme="a">
+  <div data-role="header" data-add-back-btn="true" data-back-btn-text="Regresar" data-back-btn-theme="a">
+    <h1>Curso de Access</h1>
+  </div>
+  <div data-role="content" align="center">
+    <div>
+      <center>
+        <p>&nbsp;</p>
+        <div style="width:40%;" align="center">        </div>
+        <p>&nbsp;</p>
+        <div data-role="collapsible" data-content-theme="false">
+          <h1>Access</h1>
+          <div>
+            <p><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('curso','','imagenes/curso2.jpg',1)"><img src="imagenes/curso.jpg" width="40%" height="80%" id="curso"></a></p>
+            <p>De clic en el siguiente botón para acceder al curso.</p>
+            <div style="width:40%;" align="center">
+              <ul data-role="controlgroup" data-type="vertical" data-theme="b">
+                <li class="ui-first-child ui-last-child">
+                  <h2><a href="https://www.youtube.com/watch?v=y7yHKJliUrs" data-role="button" target="_self">Aquí.</a></h2>
+</li>
+</ul>
+<ul data-role="controlgroup" data-type="vertical" data-theme="b">
+                <li class="ui-first-child ui-last-child"> </li>
+              </ul>
+            </div>
+            <p>&nbsp;</p>
+            <p><br>
+            </p>
+          </div>
+          <div></div>
+        </div>
+        <p>&nbsp;</p>
+      </center>
+      <p></p>
+    </div>
+  </div>
+  <div data-role="footer" align="center" data-theme="a" data-position="fixed">
+    <div> <img src="res/android/mdpi.png" alt="" width="46" height="46"/></div>
+    <h4>Aplicación Diez, GJCX</h4>
+  </div>
+  <div data-role="content" align="center">
+    <div>
+      <center>
+        <div style="width:40%;" align="center"> </div>
+      </center>
+    </div>
+  </div>
+</div>
+<p>&nbsp;</p>
+
+</body>
+</html>
+
